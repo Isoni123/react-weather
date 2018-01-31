@@ -4,7 +4,7 @@ import './App.css';
 import Search from './Search.js';
 import  WeatherList from './WeatherList';
 import WeatherService from '../services/WeatherOpenWeatherMapService';
-
+import WeatherSummary from './WeatherSummary';
 
 class App extends Component {
 
@@ -15,6 +15,7 @@ class App extends Component {
         };
 
         this.onSearchHandler = this.onSearch.bind(this);
+
     }
 
     onSearch(city, country) {
@@ -48,6 +49,8 @@ class App extends Component {
                 self.setState({weatherItems});
 
             });
+
+
     }
 
 
@@ -59,18 +62,15 @@ class App extends Component {
                 </header>
 
                 <Search onSearch={this.onSearchHandler}/>
-
                 <br/>
                 <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-12">
                         <div className="panel panel-default">
-                            <div className="panel-body">
-
-                                <WeatherList className="5dayweatherforcast" weatherItems={this.state.weatherItems}
-                                             weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}/>
+                            <WeatherSummary className ="5dayweathersummary" weatherItems ={this.state.weatherItems}
+                                            weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}/>
                             <br/>
-                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -81,3 +81,5 @@ class App extends Component {
 export default App;
 
 
+// <WeatherList className="5dayweatherforcast" weatherItems={this.state.weatherItems}
+//weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}/>

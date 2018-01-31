@@ -14,7 +14,7 @@ class WeatherItem extends React.Component {
             <div className='WeatherItemContainer'>
                 {this.props.id}
                 {this.props.city}
-                <Moment locale={mylocale} format ='dddd, DD/MM/YYYY HH:mm' >{this.props.datetime}</Moment>
+                <Moment locale={mylocale} format ='dddd, DD MMMM' >{this.props.datetime}</Moment>
                <br/>
                 {this.props.description}
                 <br/>

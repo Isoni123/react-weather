@@ -20,6 +20,7 @@ var service = {
                     var city = item.cityid;
                     var datetime = item.dt_txt;
                     var dt = item.dt_txt;
+
                     var main = item.main;
                     var weather = item.weather[0];
 
@@ -30,7 +31,8 @@ var service = {
                         description: weather.description,
                         temp: main.temp,
                         icon: weather.icon,
-                        name: dt
+                        name: dt,
+
                     }
                 });
 

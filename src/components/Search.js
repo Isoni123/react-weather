@@ -41,7 +41,7 @@ class Search extends Component {
         return (
 
 
-            <div className="col-sm-3">
+            <div className="col-sm-12">
                 <br/>
                 <div className="panel panel-default">
                     <div className="panel-body">
@@ -53,6 +53,7 @@ class Search extends Component {
                                 City Name:
                                 <input type="text" name="city" value={this.state.city}
                                        onChange={this.handleCityChange}/>
+                                <br/>
                                 <br/>
                                 Country:
                                 <input type="text" name="country" value={this.state.country}

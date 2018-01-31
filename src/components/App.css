@@ -15,7 +15,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 .App-intro {
@@ -31,8 +31,14 @@
 {
   background-color: #EEEEEE;
   border: solid 1px silver;
-  width: 100px;
+  width: 70px;
   font-size: 10px;
   float: left;
-  margin: 10px;
+  margin: 5px;
+}
+
+.WeatherItemsRow
+{
+  clear: both;
+  background-color: rebeccapurple;
 }

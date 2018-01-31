@@ -3,12 +3,19 @@
  */
 import React, {Component} from 'react';
 import WeatherItem from './WeatherItem.js';
+import _ from 'lodash';
+import moment from 'moment';
+
 
 class WeatherList extends Component {
+
+
 
     componentWillMount() {
         console.log("Weather List is loaded");
     }
+
+
 
     render() {
 
@@ -20,26 +27,37 @@ class WeatherList extends Component {
 
         const self = this;
 
-        var wItems = this.props.weatherItems.map(function (item) {
-            return <WeatherItem key={item.id}
-                                city={item.city}
-                                datetime={item.datetime}
-                                icon={item.icon}
-                                description={item.description}
-                                temp={item.temp -273.15}
-                                weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
+        // need to group the results by datetime
+        var groups = _.groupBy(this.props.weatherItems, function (item) {
+            console.log(item.datetime);
+            return moment(item.datetime).startOf('day').format();
+        });
+        console.log('Groups', groups);
+
+
+
+        // Then place the partitioned chunks into the page
+
+        var groupOfWItems = _.map(groups, function (group) {
+
+            var wItems = _.map(group, function (item) {
+                return <WeatherItem key={item.id}
+                                    city={item.city}
+                                    datetime={item.datetime}
+                                    icon={item.icon}
+                                    description={item.description}
+                                    temp={item.temp -273.15}
+                                    weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
+                });
+            return <div key={group} className='WeatherItemsRow'>{wItems}</div>;
 
         });
 
-        // need to partition the results
-
-
-        // Then place the partitioned chunks into the grid
 
 
         return (
             <div className="container">
-                {wItems}
+                {groupOfWItems}
             </div>
         );
 
@@ -47,3 +65,19 @@ class WeatherList extends Component {
 }
 
 export default WeatherList;
+
+//
+// groupOfWItems.filter((wItem) => wItem.datetime === "12:00:00")
+//
+//var wItems = this.props.weatherItems.map(function (item) {
+//    return <WeatherItem key={item.id}
+//                        city={item.city}
+//                        datetime={item.datetime}
+//                        icon={item.icon}
+//                        description={item.description}
+//                        temp={item.temp -273.15}
+//                        weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
+//
+//});
+
+//        {wItems}
