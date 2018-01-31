@@ -16,6 +16,7 @@ class App extends Component {
 
         this.onSearchHandler = this.onSearch.bind(this);
 
+
     }
 
     onSearch(city, country) {
@@ -53,6 +54,11 @@ class App extends Component {
 
     }
 
+    onWeatherSummaryItemClick(datetime)
+    {
+        console.log(datetime);
+        //this.setState({dateSelected: datetime});
+    }
 
     render() {
         return (
@@ -67,7 +73,9 @@ class App extends Component {
                     <div className="col-sm-12">
                         <div className="panel panel-default">
                             <WeatherSummary className ="5dayweathersummary" weatherItems ={this.state.weatherItems}
-                                            weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}/>
+                                            weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
+                                             onWeatherSummaryItemClick={this.onWeatherSummaryItemClick.bind(this)}/>
+
                             <br/>
                         </div>
 

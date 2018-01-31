@@ -6,12 +6,19 @@ import React from 'react';
 import Moment from 'react-moment';
 var mylocale = require('browser-locale')();
 
-class WeatherItem extends React.Component {
+class WeatherSummaryItem extends React.Component {
 
+    onWeatherItemClick()
+    {
+        if (this.props.onWeatherSummaryItemClick)
+        {
+            this.props.onWeatherSummaryItemClick(this.props.datetime);
+        }
+    }
 
     render() {
         return (
-            <div className='WeatherItemContainer'>
+            <div className='WeatherItemContainer' onClick={this.onWeatherItemClick.bind(this)}>
                 {this.props.id}
                 {this.props.city}
                 <Moment locale={mylocale} format ='dddd, DD MMMM' >{this.props.datetime}</Moment>
@@ -27,4 +34,4 @@ class WeatherItem extends React.Component {
 }
 
 
-export default WeatherItem;
+export default WeatherSummaryItem;

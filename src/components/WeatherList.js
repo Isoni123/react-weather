@@ -48,6 +48,7 @@ class WeatherList extends Component {
                                     description={item.description}
                                     temp={item.temp -273.15}
                                     weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
+
                 });
             return <div key={group} className='WeatherItemsRow'>{wItems}</div>;
 
@@ -70,7 +71,7 @@ export default WeatherList;
 // groupOfWItems.filter((wItem) => wItem.datetime === "12:00:00")
 //
 //var wItems = this.props.weatherItems.map(function (item) {
-//    return <WeatherItem key={item.id}
+//    return <WeatherSummaryItem key={item.id}
 //                        city={item.city}
 //                        datetime={item.datetime}
 //                        icon={item.icon}

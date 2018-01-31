@@ -9,6 +9,15 @@ import Search from './Search';
 
 class WeatherSummary extends Component {
 
+    constructor(props) {
+        super(props);
+        //if (this.props.onClick) {
+        //
+        //
+        //}
+
+
+    }
 
     componentWillMount() {
         console.log("Weather List is loaded");
@@ -40,12 +49,14 @@ class WeatherSummary extends Component {
             console.log('summary', summaryWeather);
 
             return <WeatherSummaryItem key={summaryWeather.id}
-                                city={summaryWeather.city}
-                                datetime={summaryWeather.datetime}
-                                icon={summaryWeather.icon}
-                                description={summaryWeather.description}
-                                temp={summaryWeather.temp -273.15}
-                                weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
+                                       city={summaryWeather.city}
+                                       datetime={summaryWeather.datetime}
+                                       icon={summaryWeather.icon}
+                                       description={summaryWeather.description}
+                                       temp={summaryWeather.temp -273.15}
+                                       weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}
+                                       onWeatherSummaryItemClick={self.props.onWeatherSummaryItemClick}
+            />
         });
 
         return (
@@ -62,7 +73,7 @@ export default WeatherSummary;
 
 //
 //var wSummary = _.map(summaryWeather, function (item) {
-//    return <WeatherItem key={item.id}
+//    return <WeatherSummaryItem key={item.id}
 //                        city={item.city}
 //                        datetime={item.datetime}
 //                        icon={item.icon}
@@ -77,7 +88,7 @@ export default WeatherSummary;
 /*
  var WeatherItemsByDay =this.props.weatherItems.filter ((item) => this.props.weatherItems[3])
  .map(function (item){
- return<WeatherItem key={item.id}
+ return<WeatherSummaryItem key={item.id}
  datetime={item.datetime}
  temp={item.temp -273.15}
  icon={item.icon}
