@@ -7,7 +7,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import Search from './Search';
 
-class WeatherList extends Component {
+class WeatherSummary extends Component {
 
 
     componentWillMount() {
@@ -57,7 +57,7 @@ class WeatherList extends Component {
     }
 }
 
-export default WeatherList;
+export default WeatherSummary;
 
 
 //
