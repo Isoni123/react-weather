@@ -45,7 +45,7 @@ class WeatherSummary extends Component {
             var numberOfItems = group.length;
             var middleItemIndex = Math.floor(numberOfItems / 2);
 
-            var summaryWeather = _.nth(group, middleItemIndex) // time points
+            var summaryWeather = _.nth(group, middleItemIndex); // time points
             console.log('summary', summaryWeather);
 
             return <WeatherSummaryItem key={summaryWeather.id}

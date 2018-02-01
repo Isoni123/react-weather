@@ -54,10 +54,9 @@ class App extends Component {
 
     }
 
-    onWeatherSummaryItemClick(datetime)
-    {
+    onWeatherSummaryItemClick(datetime) {
         console.log(datetime);
-        //this.setState({dateSelected: datetime});
+        this.setState({dateSelected: datetime});
     }
 
     render() {
@@ -72,13 +71,21 @@ class App extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="panel panel-default">
-                            <WeatherSummary className ="5dayweathersummary" weatherItems ={this.state.weatherItems}
+                            <WeatherSummary className="5dayweathersummary" weatherItems={this.state.weatherItems}
                                             weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
-                                             onWeatherSummaryItemClick={this.onWeatherSummaryItemClick.bind(this)}/>
-
+                                            onWeatherSummaryItemClick={this.onWeatherSummaryItemClick.bind(this)}/>
                             <br/>
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <div className="panel panel-default">
+                                        <WeatherList className="5dayweathersummary" weatherItems={this.state.weatherItems}
+                                                     weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
+                                                     className="weatherforwholeday" dateSelected={this.state.dateSelected}/>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
