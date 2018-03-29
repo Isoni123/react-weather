@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import Search from './Search.js';
-import  WeatherList from './WeatherList';
+import  DetailedWeather from './DetailedWeather';
 import WeatherService from '../services/WeatherOpenWeatherMapService';
 import WeatherSummary from './WeatherSummary';
 
@@ -57,38 +57,48 @@ class App extends Component {
     onWeatherSummaryItemClick(datetime) {
         console.log(datetime);
         this.setState({dateSelected: datetime});
+
     }
 
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to My Weather App</h1>
-                </header>
 
-                <Search onSearch={this.onSearchHandler}/>
-                <br/>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="panel panel-default">
-                            <WeatherSummary className="5dayweathersummary" weatherItems={this.state.weatherItems}
-                                            weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
-                                            onWeatherSummaryItemClick={this.onWeatherSummaryItemClick.bind(this)}/>
-                            <br/>
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="panel panel-default">
-                                        <WeatherList className="5dayweathersummary" weatherItems={this.state.weatherItems}
-                                                     weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
-                                                     className="weatherforwholeday" dateSelected={this.state.dateSelected}/>
-                                        <br/>
+    render() {
+
+
+        return (
+
+            <div className="App">
+                <div className="card w-60  mb-3">
+                    <h3 className="card-title "> Weather App</h3>
+
+                    <div className="card-body ">
+                        <h5 className="card-title">What's the 5 day weather forecast?</h5>
+                        <Search onSearch={this.onSearchHandler}/>
+
+
+                        <div className="row">
+                                <div className="card w-60 mb-3">
+                                    <div className="col-sm-12">
+                                    <WeatherSummary className="dayweathersummary"
+                                                    weatherItems={this.state.weatherItems}
+                                                    weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
+                                                    onWeatherSummaryItemClick={this.onWeatherSummaryItemClick.bind(this)}
+                                                    dateSelected={this.state.dateSelected}/>
                                     </div>
-                                </div>
+                                    <div className="col-sm-12">
+                                        <DetailedWeather className="detailedweather"
+                                                         weatherItems={this.state.weatherItems}
+                                                         weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}
+                                                         dateSelected={this.state.dateSelected}/>
+                                    </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
+
         );
     }
 }
@@ -96,5 +106,3 @@ class App extends Component {
 export default App;
 
 
-// <WeatherList className="5dayweatherforcast" weatherItems={this.state.weatherItems}
-//weatherCodeToimageUriLookup={WeatherService.weatherCodeToimageUriLookup}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './App.css';
 
 class Search extends Component {
     constructor(props) {
@@ -36,35 +36,41 @@ class Search extends Component {
         }
     }
 
+
     render() {
 
         return (
-
-
-            <div className="col-sm-12">
-                <br/>
-                <div className="panel panel-default">
-                    <div className="panel-body">
-
-                        <form onSubmit={this.handleSubmit}>
-                            <label>
-                                Find out the weather in a city enter the name the box below:
-                                <br/>
-                                City Name:
-                                <input type="text" name="city" value={this.state.city}
+            <div className="inputform">
+                <div className="card w-50 mb-3">
+                    <div className="row">
+                        <div className="col-sm-12">
+                        <form className="" onSubmit={this.handleSubmit}>
+                            <div className="col-xs-2 text-center">
+                                <label >
+                                    City Name:
+                                </label>
+                            </div>
+                            <div className="col-xs-3 margin-left">
+                                <input type="text" name="city" value={this.state.city} placeholder="Type your city here"
                                        onChange={this.handleCityChange}/>
-                                <br/>
-                                <br/>
-                                Country:
-                                <input type="text" name="country" value={this.state.country}
+                            </div>
+                            <div className="col-xs-1 text-left">
+                                <label>
+                                    Country:
+                                </label>
+                            </div>
+                            <div className="col-xs-3 left">
+                                <input type="text" name="country" value={this.state.country}placeholder="Type your country here"
                                        onChange={this.handleCountryChange}/>
-                            </label>
-                            <input className="btn btn-primary" type="submit" name="Submit" value="Submit"/>
+                            </div>
+
+                            <div className="col-xs-3">
+                            <input className="btn btn-primary align-middle" type="submit" name="Submit" value="Submit"/>
+                        </div>
                         </form>
-
-
                     </div>
                 </div>
+                    </div>
             </div>
         );
     }

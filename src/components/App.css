@@ -1,44 +1,48 @@
+
 .App {
-  text-align: center;
+    margin: 40px;
+    width: 900px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.inputform {
+
 }
 
-.App-header {
-  background-color:deepskyblue;
-  height: 120px;
-  padding: 20px;
-  color: white;
+
+.card {
+    text: bold;
+    text-shadow: 2px, 3px, 2px;
+    margin: 5px;
+    background-color: lightblue;
+    border-color: #0c5460;
 }
 
-.App-title {
-  font-size: 1.8em;
+.weatheritemcontainer {
+    background-color: lightcyan;
+    border: solid 1px silver;
+    width: 130px;
+    font-size: 8px;
+    float: left;
+
 }
 
-.App-intro {
-  font-size: large;
+.weatheritemcontainerSelected{
+
+
+    background-color: lightseagreen;
+    border: solid 1px silver;
+    width: 130px;
+    font-size: 8px;
+    float: left;
+}
+.detweather {
+    background-color: lightseagreen;
+    border: solid 1px silver;
+    width: 130px;
+    font-size: 8px;
+    float: left;
+
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
-.WeatherItemContainer
-{
-  background-color: #EEEEEE;
-  border: solid 1px silver;
-  width: 70px;
-  font-size: 10px;
-  float: left;
-  margin: 5px;
-}
 
-.WeatherItemsRow
-{
-  clear: both;
-  background-color: rebeccapurple;
-}

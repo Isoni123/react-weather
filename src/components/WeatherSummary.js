@@ -5,19 +5,12 @@ import React, {Component} from 'react';
 import WeatherSummaryItem from './WeatherSummaryItem.js';
 import _ from 'lodash';
 import moment from 'moment';
-import Search from './Search';
 
 class WeatherSummary extends Component {
 
-    constructor(props) {
-        super(props);
-        //if (this.props.onClick) {
-        //
-        //
-        //}
-
-
-    }
+    /*    constructor(props) {
+     super(props);
+     }*/
 
     componentWillMount() {
         console.log("Weather List is loaded");
@@ -48,11 +41,20 @@ class WeatherSummary extends Component {
             var summaryWeather = _.nth(group, middleItemIndex); // time points
             console.log('summary', summaryWeather);
 
+
+            var isSelected;
+            if (!self.props.dateSelected) {
+                isSelected = false;
+            }
+            else {
+                isSelected = self.props.dateSelected === summaryWeather.datetime;
+            }
+
             return <WeatherSummaryItem key={summaryWeather.id}
                                        city={summaryWeather.city}
                                        datetime={summaryWeather.datetime}
+                                       isSelected={isSelected}
                                        icon={summaryWeather.icon}
-                                       description={summaryWeather.description}
                                        temp={summaryWeather.temp -273.15}
                                        weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}
                                        onWeatherSummaryItemClick={self.props.onWeatherSummaryItemClick}
@@ -60,8 +62,10 @@ class WeatherSummary extends Component {
         });
 
         return (
-            <div className="container">
+            <div >
+
                 {summaryWeatherPerDay}
+
             </div>
         );
 
@@ -69,6 +73,8 @@ class WeatherSummary extends Component {
 }
 
 export default WeatherSummary;
+
+//description={summaryWeather.description}
 
 
 //

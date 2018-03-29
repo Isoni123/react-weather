@@ -2,12 +2,12 @@
  * Created by user on 19/01/2018.
  */
 import React, {Component} from 'react';
-import WeatherItem from './WeatherItem.js';
+import DetailedWeatherItem from './DetailedWeatherItem.js';
 import _ from 'lodash';
 import moment from 'moment';
 
 
-class WeatherList extends Component {
+class DetailedWeather extends Component {
 
 
     componentWillMount() {
@@ -21,6 +21,8 @@ class WeatherList extends Component {
             return <span/>;
         }
 
+
+
         // What I am being passed
         console.log(this.props.weatherItems);
 
@@ -28,6 +30,7 @@ class WeatherList extends Component {
 
 
         const self = this;
+
 
         const selectedDate = new moment(this.props.dateSelected).format("YYYY-MM-DD");
 
@@ -46,27 +49,24 @@ class WeatherList extends Component {
         console.log('fullweatherinfo', weatherItemOfSelectedDay)
 
 
-        // Then place the partitioned chunks into the page
-
         var groupOfWItems = _.map(weatherItemOfSelectedDay[0], function (timePointInTheDay) {
 
-            // var wItems = _.map(group, function (item) {
-            return <WeatherItem key={timePointInTheDay.id}
-                                city={timePointInTheDay.city}
-                                datetime={timePointInTheDay.datetime}
-                                icon={timePointInTheDay.icon}
-                                description={timePointInTheDay.description}
-                                temp={timePointInTheDay.temp -273.15}
-                                weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}
-                                dateSelected={self.props.dateSelected}/>
 
-            // return <div key={group} className='WeatherItemsRow'>{wItems}</div>;
+            return <DetailedWeatherItem
+
+                key={timePointInTheDay.id}
+                city={timePointInTheDay.city}
+                datetime={timePointInTheDay.datetime}
+                icon={timePointInTheDay.icon}
+
+                temp={timePointInTheDay.temp - 273.15}
+                weatherCodeToimageUriLookup={self.props.weatherCodeToimageUriLookup}/>
 
         });
 
 
         return (
-            <div className="container">
+            <div >
                 {groupOfWItems}
             </div>
         );
@@ -74,7 +74,7 @@ class WeatherList extends Component {
     }
 }
 
-export default WeatherList;
+export default DetailedWeather;
 
 //
 // groupOfWItems.filter((wItem) => wItem.datetime === "12:00:00")
@@ -90,4 +90,4 @@ export default WeatherList;
 //
 //});
 
-//        {wItems}
+// {wItems}
