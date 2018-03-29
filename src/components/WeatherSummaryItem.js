@@ -26,7 +26,7 @@ class WeatherSummaryItem extends React.Component {
         return (
             <div className={classNames} onClick={this.onWeatherItemClick.bind(this)}>
 
-                <div className="col-xs-2">
+                <div className="col-xs-3">
                     <Moment locale={mylocale} format='ddd, DD MMMM'>{this.props.datetime}</Moment>
                 </div>
                 <div className="col-xs-2 ">

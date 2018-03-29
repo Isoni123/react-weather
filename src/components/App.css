@@ -13,7 +13,6 @@
     text: bold;
     text-shadow: 2px, 3px, 2px;
     margin: 5px;
-    background-color: lightblue;
     border-color: #0c5460;
 }
 
@@ -21,7 +20,7 @@
     background-color: lightcyan;
     border: solid 1px silver;
     width: 130px;
-    font-size: 8px;
+    font-size: 12px;
     float: left;
 
 }
@@ -32,14 +31,14 @@
     background-color: lightseagreen;
     border: solid 1px silver;
     width: 130px;
-    font-size: 8px;
+    font-size: 12px;
     float: left;
 }
 .detweather {
     background-color: lightseagreen;
     border: solid 1px silver;
     width: 130px;
-    font-size: 8px;
+    font-size: 12px;
     float: left;
 
 }
